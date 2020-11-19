@@ -1,4 +1,5 @@
 import csv_management
+import bebidas
 
 def order():
     triple = 580
@@ -9,7 +10,8 @@ def order():
 
     nsand = 0  # número de sandwiches
     val = 1
-    cuenta = 0  # total a pagar
+    cuenta = 0  # total a pagar por sandwich(es)
+    cuenta_total = 0 # total a pagar, sandwich(es) mas bebida(s)
 
     while val == 1:  # ciclo para cada sandwich
         nsand += 1
@@ -64,7 +66,6 @@ def order():
             i = 0
             # ciclo para imprimir nombre de los ingredientes y sumar su valor a la cuenta
             while i < len(listin):
-                aux = 0
                 cont = 0
                 for ingre in ingredientes:
                     if ingre[0] == listin[i]:
@@ -100,5 +101,8 @@ def order():
             val = 0
         print()
 
+    cuenta_total += cuenta + bebidas.ordenar_bebida() #llamada a la funcion de ordenar bebidas y agregacion a la cuenta total
+
     print('El pedido tiene un total de ', nsand, ' sándwich(es) por un monto de ', cuenta, '\n')
-    print('Gracias por su compra, regrese pronto')
+    print('Total a pagar: ',cuenta_total)
+    print('\nGracias por su compra, regrese pronto')
