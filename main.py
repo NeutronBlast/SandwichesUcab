@@ -1,16 +1,32 @@
-# This is a sample Python script.
+import order
+import csv_management
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+print("*******************************************************")
+print("*                SANDWICHES UCAB                       *")
+print("*******************************************************\n")
 
+op = -1
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+while op != 0:
+    print("\tSeleccione una opción\n")
+    print("1. Ver historial de compras")
+    print("2. Ordenar sandwiches")
+    print("3. Ver lista de precios")
+    print("0. Salir")
+    op = input()
 
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    if op not in ['1', '2', '3', '0']:
+        print("Opcion fuera de rango")
+    else:
+        if op == '1':
+            print("*******************************************************")
+            print("*                HISTORICO DE ORDENES                 *")
+            print("*******************************************************\n")
+            csv_management.print_all_orders()
+        elif op == '2':
+            order.order()
+        elif op == '3':
+            print("Opcion 3...")
+        else:
+            print("Hasta pronto!")
+            exit(0)
