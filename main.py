@@ -1,5 +1,6 @@
 import order
 import csv_management
+import prices
 
 print("*******************************************************")
 print("*                SANDWICHES UCAB                       *")
@@ -26,7 +27,7 @@ while op != 0:
         elif op == '2':
             order.order()
         elif op == '3':
-            print("Opcion 3...")
+            prices.prices()
         else:
             print("Hasta pronto!")
             exit(0)
