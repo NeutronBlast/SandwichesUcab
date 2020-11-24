@@ -1,5 +1,7 @@
 import csv_management
 import bebidas
+import time
+import random
 
 def order():
     triple = 580
@@ -82,7 +84,7 @@ def order():
                     nombreorden += ing[1] + "-"
                 i += 1
 
-        # Agregar sandwich al archivo CSV
+
         nombreorden = "Sandwich " + ntam + " con " + nombreorden
         csv_management.append_order(nombreorden, cuentaindiv)
         print()
@@ -92,7 +94,7 @@ def order():
         auxi = 0
         resp = ''
         while auxi == 0:
-            resp = input("¿Desea continuar [s/n]?: ")
+            resp = input("¿Desea ordenar otro sandwich [s/n]?: ")
             if resp != 's' and resp != 'n':
                 print('Opción no válida')
             else:
@@ -104,5 +106,53 @@ def order():
     cuenta_total += cuenta + bebidas.ordenar_bebida() #llamada a la funcion de ordenar bebidas y agregacion a la cuenta total
 
     print('El pedido tiene un total de ', nsand, ' sándwich(es) por un monto de ', cuenta, '\n')
+    
     print('Total a pagar: ',cuenta_total)
-    print('\nGracias por su compra, regrese pronto')
+
+    print()
+    print()
+    print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+    print('ESTAMOS SORTEANDO UN AUTOMOVIL TESLA 0km')
+    print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+    print()
+    print('¿Desea participar? el costo del boleto es 500')
+    print()
+    auxi=0
+    #ciclo de toma de decision de la participacion en la rifa
+    while auxi == 0:
+        resp = input("¿Participar [s/n]?: ")
+        if resp != 's' and resp != 'n':
+            print('Opción no válida')
+        else:
+            auxi = 1
+        #si desea participar, entra por este if, sino va directo al final
+        if resp == 's':
+            print('Gracias por participar! ')
+            cuenta_total = cuenta_total + 500
+            print('Tu nuevo total a pagar: ',cuenta_total)
+            sorteoToken = input("Escoge un numero del 1-100: ") #Escpge un numero el cliente para la rifa
+            print('Buena eleccion!')
+            time.sleep(3)
+            print('Seleccionando el boleto ganador')
+            time.sleep(2)
+            print('...')
+            time.sleep(2)
+            print('...')
+
+            print('TENEMOS EL BOLETO GANADOR!!! y es el numero...')
+            time.sleep(2)
+            print('...')
+            time.sleep(2)
+
+            ganador = random.randrange(1, 101)      #se selecciona un boleto al azar del 1 al 100
+
+            print(ganador,'!!!')
+            time.sleep(1)
+            if ganador == sorteoToken: #if del caso ganador
+                print('ERES EL GANADOR DE UN NUEVO AUTOMOVIL TESLA 0KM, FELICIDADES!!')
+                time.sleep(3)
+            else :                      #if del caso perdedor
+                print('MALA SUERTE!!! quizas para la proxima...')
+                time.sleep(3)
+
+    print('\nGracias por su compra!, regrese pronto')
