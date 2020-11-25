@@ -14,7 +14,8 @@ while op != 0:
     print("2. Ordenar sandwiches")
     print("3. Ver lista de precios")
     print("0. Salir")
-    op = input()
+    print()
+    op = input("Ingrese una opción: ")
 
     if op not in ['1', '2', '3', '0']:
         print("Opcion fuera de rango")
